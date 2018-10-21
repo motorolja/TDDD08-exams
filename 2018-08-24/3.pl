@@ -19,5 +19,5 @@ nls([X,Y|T]):- number(X), number(Y), <(X,Y), nls([Y|T]). % 2 or more numbers, ch
 % top/2 finding the greatest number in a nonempty list of numbers (which may be not distinct).
 % top(L=List of elements, O=greatest number so far)
 top([X],X):- number(X). % if only one element
-top([X|T],X):- number(X), top(T,Y), <(Y,X).
-top([X|T],Y):- number(X), top(T,Y), <(X,Y).
+top([X|T],X):- number(X), top(T,Y), <(Y,X). % if the Head variable X is greater than any number Y in the list.
+top([X|T],Y):- number(X), top(T,Y), <(X,Y). % if a number Y is greater then X and any other number in the list.
